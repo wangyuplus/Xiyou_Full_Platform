@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/X-admin/css/font.css">
+    <link rel="stylesheet" href="/X-admin/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/X-admin/js/xadmin.js"></script>
+
+</head>
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="">XFP—西邮服务平台后台</a></div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="">个人信息</a></dd>
+                <dd><a href="">切换帐号</a></dd>
+                <dd><a href="../login.html">退出</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/">前台首页</a></li>
+    </ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<div class="wrapper">
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">
+            <ul id="nav">
+                <li class="list">
+                    <a href="index.html">
+                        <i class="layui-icon">&#xe609;</i>
+                        商家信息
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="announcement.html">
+                        <i class="layui-icon">&#xe609;</i>
+                        公告信息
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="modify.html">
+                        <i class="layui-icon">&#xe60a;</i>
+                        修改信息
+                    </a>
+                </li>
+                <li class="list open">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe70b;</i>
+                        商品管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display: block">
+                        <li>
+                            <a href="goods_list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                商品列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="goods_add.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                增加商品
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+
+            <xblock>
+                <fieldset class="layui-elem-field layui-field-title site-title">
+                    <legend><a name="default">商品列表</a></legend>
+                </fieldset>
+            </xblock>
+            <table class="layui-table" id="goods_list">
+            </table>
+            <!-- 右侧内容框架，更改从这里结束 -->
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<!-- 中部结束 -->
+<div class="bg-changer">
+    <div class="swiper-container changer-list">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/a.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/b.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/c.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/d.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/e.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/f.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/g.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/h.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/i.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/j.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/k.jpg" alt=""></div>
+            <div class="swiper-slide"><span class="reset">初始化</span></div>
+        </div>
+    </div>
+    <div class="bg-out"></div>
+    <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+</div>
+<!-- 底部开始 -->
+<div class="footer">
+    <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved. 本后台系统由X前端框架提供前端技术支持</div>
+</div>
+<!-- 底部结束 -->
+
+<script>
+    layui.use('table', function () {
+        var table = layui.table;
+        table.render({
+            elem: '#goods_list'
+            , url: '/'
+            , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            , cols: [[
+                {field: 'id', width: 80, title: 'ID', sort: true}
+                , {field: 'name', width: 120, title: '商品名'}
+                , {field: 'desc', width: 300, title: '描述'}
+                , {field: 'off', width: 80, title: '是否优惠'}
+                , {field: 'price', title: '原价', width: 120, minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                , {field: 'offprice', title: '优惠价', width: 120}
+                , {field: 'status', title: '状态', sort: true}
+            ]]
+        });
+    });
+
+</script>
+</body>
+</html>

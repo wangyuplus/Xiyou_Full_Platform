@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快递代取</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/X-admin/css/font.css">
+    <link rel="stylesheet" href="/X-admin/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="/X-admin/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/X-admin/js/xadmin.js"></script>
+
+</head>
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="/index">快递代取</a></div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="">个人信息</a></dd>
+                <dd><a href="">切换帐号</a></dd>
+                <dd><a href="/loginout.html">退出登录</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/index">返回首页</a></li>
+    </ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<div class="wrapper">
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">
+            <ul id="nav">
+                <li class="list">
+                    <a href="index.html">
+                        <i class="iconfont">&#xe70b;</i>
+                        校园快递
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="my_express.html">
+                        <i class="iconfont">&#xe70b;</i>
+                        我的快递
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="express-add.html">
+                        <i class="iconfont">&#xe70b;</i>
+                        代取快递
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <xblock>
+                <fieldset class="layui-elem-field layui-field-title site-title">
+                    <legend><a name="default">校园快递代取</a></legend>
+                </fieldset>
+            </xblock>
+            <xblock>
+            <form class="layui-form"  >
+                <div class="layui-form-item">
+                    <label for="name" class="layui-form-label">
+                        <span class="x-red">*</span>姓名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" required="" lay-verify="name"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                    <div class="layui-form-item">
+                        <label for="company" class="layui-form-label">
+                            <span class="x-red">*</span>快递公司
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="company" name="company" required="" lay-verify="company"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="expressnum" class="layui-form-label">
+                            <span class="x-red">*</span>快递编号
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="expressnum" name="expressnum" required="" lay-verify="expressnum"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            您收到的快递编号
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="phonenumber" class="layui-form-label">
+                            <span class="x-red">*</span>联系电话
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="phonenumber" name="phonenumber" required="" lay-verify="phonenumber"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            快递上所填写的联系电话
+                        </div>
+                    </div>
+                <div class="layui-form-item">
+                    <label for="address" class="layui-form-label">
+                        <span class="x-red">*</span>目的地址
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="address" name="address" required="" lay-verify="address"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        快递送达地址
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-filter="add" onclick="insertExpress()">
+                        增加
+                    </button>
+                </div>
+            </form>
+            </xblock>
+            <!-- 右侧内容框架，更改从这里结束 -->
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<!-- 中部结束 -->
+<div class="bg-changer">
+    <div class="swiper-container changer-list">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/a.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/b.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/c.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/d.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/e.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/f.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/g.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/h.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/i.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/j.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/k.jpg" alt=""></div>
+            <div class="swiper-slide"><span class="reset">初始化</span></div>
+        </div>
+    </div>
+    <div class="bg-out"></div>
+    <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+</div>
+<script>
+    function insertExpress(){
+        $.post("/express/insert", {
+            name:$("#name").val(),
+            company:$("#company").val(),
+            expressnum:$("#expressnum").val(),
+            phonenumber:$("#phonenumber").val(),
+            address:$('#address').val(),
+            },
+            function(result){
+                alert(result);
+            }
+        );
+    }
+
+
+</script>
+</body>
+</html>

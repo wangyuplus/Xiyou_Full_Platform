@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../X-admin/css/font.css">
+    <link rel="stylesheet" href="../X-admin/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="../../static/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../static/jquery/jquery_form.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="../X-admin/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../X-admin/js/xadmin.js"></script>
+
+
+</head>
+<body>
+<form class="layui-form" action="/" method="post" id="role_form" name="role_form">
+    <div class="layui-form-item">
+        <label for="role-name" class="layui-form-label">
+            <span class="x-red">*</span>角色名字
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" id="role-name" name="role-name" required="" lay-verify="required"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn" lay-filter="save" lay-submit="" id="sub">
+            保存
+        </button>
+    </div>
+</form>
+<div class="bg-changer">
+    <div class="swiper-container changer-list">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/a.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/b.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/c.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/d.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/e.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/f.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/g.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/h.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/i.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/j.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/k.jpg" alt=""></div>
+            <div class="swiper-slide"><span class="reset">初始化</span></div>
+        </div>
+    </div>
+    <div class="bg-out"></div>
+    <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+</div>
+<script>
+
+    // 表单提交
+    $("#sub").click(function () {
+        $("#role_form").ajaxSubmit(function (data) {
+            alert(data.message)
+        })
+    })
+
+</script>
+</body>
+</html>

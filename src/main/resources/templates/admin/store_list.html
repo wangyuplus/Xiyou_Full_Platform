@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script src="/layui/css/layui.css" charset="utf-8"></script>
+    <link rel="stylesheet" href="../X-admin/css/font.css">
+    <link rel="stylesheet" href="../X-admin/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+
+    <script type="text/javascript" src="../X-admin/js/xadmin.js"></script>
+    <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
+
+
+</head>
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="./index.html">X-ADMIN V1.1</a></div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="">个人信息</a></dd>
+                <dd><a href="">切换帐号</a></dd>
+                <dd><a href="./index.html">退出</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/">前台首页</a></li>
+    </ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<div class="wrapper">
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">
+            <ul id="nav">
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe70b;</i>
+                        用户管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display: none">
+                        <li>
+                            <a href="user_list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="role_list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                角色管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        生活缴费管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/LifePayment/PayForCard.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                一卡通充值
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/LifePayment/payforelectricity.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                电费
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/LifePayment/PayForWater.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                水费
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/LifePayment/PayForPhone.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                话费
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/LifePayment/PayForInternet.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                网费
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        快递系统管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="express_list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                快递列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list open">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        点餐系统管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:block">
+                        <li>
+                            <a href="store_list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                商家列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/order_list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                订单列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        二手平台管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="">
+                                <i class="iconfont">&#xe6a7;</i>
+                                帖子列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        系统管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="">
+                                <i class="iconfont">&#xe6a7;</i>
+                                地图
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="iconfont">&#xe6a7;</i>
+                                饼图
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="iconfont">&#xe6a7;</i>
+                                k线图
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="iconfont">&#xe6a7;</i>
+                                仪表图
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://echarts.baidu.com/examples.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                更多案例
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        系统设置
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="./banner-list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                轮播列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <form class="layui-form xbs" action="">
+                <div class="layui-form-pane" style="text-align: center;">
+                    <div class="layui-form-item" style="display: inline-block;">
+                        <label class="layui-form-label xbs768">日期范围</label>
+                        <div class="layui-input-inline xbs768">
+                            <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
+                        </div>
+                        <div class="layui-input-inline xbs768">
+                            <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
+                        </div>
+                        <div class="layui-input-inline">
+                            <input type="text" name="username" placeholder="请输入用户名" autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                        <div class="layui-input-inline" style="width:80px">
+                            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i
+                                    class="layui-icon">&#xe615;</i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <xblock>
+                <div class="layui-btn-group demoTable">
+                    <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+                    <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+                    <button class="layui-btn" data-type="isAll">验证是否全选</button>
+                    <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除
+                    </button>
+                    <button class="layui-btn" onclick="member_add('添加商家','store_add.html','600','500')">
+                        <i class="layui-icon">&#xe608;</i>添加
+                    </button>
+                    <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+                </div>
+            </xblock>
+
+            <table class="layui-table" lay-data="{url:'/getmerchantlist', id:'idTest'}"  lay-filter="demo">
+                <thead>
+                <tr>
+                    <th lay-data="{type:'checkbox'}"></th>
+                    <th lay-data="{field:'name', width:200}">商家名字</th>
+                    <th lay-data="{field:'menuid', width:200}">菜单ID</th>
+                    <th lay-data="{field:'type', width:100}">营业状态</th>
+                    <th lay-data="{field:'announcement', width:200}">公告</th>
+                    <th lay-data="{width:350, align:'center', toolbar: '#barDemo'}">操作</th>
+                </tr>
+                </thead>
+            </table>
+
+            <script type="text/html" id="barDemo">
+                <a title="编辑" href="javascript:;" lay-event="detail"
+                   class="ml-5" style="text-decoration:none">
+                    <i class="layui-icon">&#xe642;</i>
+                </a>
+                <a title="删除" href="javascript:;" lay-event="del"
+                   style="text-decoration:none">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </script>
+            <!-- 右侧内容框架，更改从这里结束 -->
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<!-- 中部结束 -->
+<div class="bg-changer">
+    <div class="swiper-container changer-list">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/a.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/b.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/c.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/d.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/e.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/f.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/g.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/h.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/i.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/j.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/k.jpg" alt=""></div>
+            <div class="swiper-slide"><span class="reset">初始化</span></div>
+        </div>
+    </div>
+    <div class="bg-out"></div>
+    <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+</div>
+<!-- 底部开始 -->
+<div class="footer">
+    <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved. 本后台系统由X前端框架提供前端技术支持</div>
+</div>
+<!-- 底部结束 -->
+<!-- 页面动态效果 -->
+
+<script>
+
+    layui.use(['laydate'], function () {
+        laydate = layui.laydate;//日期插件
+        var start = {
+            min: laydate.now()
+            , max: '2099-06-16 23:59:59'
+            , istoday: false
+            , choose: function (datas) {
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            , max: '2099-06-16 23:59:59'
+            , istoday: false
+            , choose: function (datas) {
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function () {
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function () {
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+    layui.use('table', function () {
+        var table = layui.table;
+        //监听表格复选框选择
+        table.on('checkbox(demo)', function (obj) {
+            console.log(obj)
+        });
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                layer.msg('ID：'+ data.id + ' 的查看操作');
+            } else if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    var  id=data.id;
+
+                    $.ajax({
+                        type: "post",
+                        url: "/deletemerchantById?id=" + id,
+                        data: (id),
+                        dataType: 'json',
+                    });
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                layer.alert('编辑行：<br>'+ JSON.stringify(data))
+            }
+        });
+        var $ = layui.$, active = {
+            getCheckData: function () { //获取选中数据
+                var checkStatus = table.checkStatus('idTest')
+                    , data = checkStatus.data;
+                layer.alert(JSON.stringify(data));
+            }
+            , getCheckLength: function () { //获取选中数目
+                var checkStatus = table.checkStatus('idTest')
+                    , data = checkStatus.data;
+                layer.msg('选中了：' + data.length + ' 个');
+            }
+            , isAll: function () { //验证是否全选
+                var checkStatus = table.checkStatus('idTest');
+                layer.msg(checkStatus.isAll ? '全选' : '未全选')
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        table.on('edit(demo)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+            console.log(obj.value); //得到修改后的值
+            console.log(obj.field); //当前编辑的字段名
+            console.log(obj.data); //所在行的所有相关数据
+            //这里写数据库更新操作
+
+        });
+    });
+
+    //批量删除提交
+    function delAll() {
+        layer.confirm('确认要删除吗？', function (index) {
+            //捉到所有被选中的，发异步进行删除
+            layer.msg('删除成功', {icon: 1});
+        });
+    }
+
+    // 商户-编辑
+    function store_edit(obj, title, url, id, w, h) {
+        x_store_show(obj, title, url, w, h);
+    }
+
+    /*商户-删除*/
+    function store_del(obj, id) {
+        var checkStatus = table.checkStatus('idTest')
+            , data = checkStatus.data;
+        alert(data.id);
+        console.log(obj);
+        $.ajax({
+            type: "post",
+            url: "/deletemerchantById?id=" + id,
+            data: (id),
+            dataType: 'json',
+        });
+
+            layer.confirm('确认要删除吗？', function (index) {
+                //发异步删除数据
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!', {icon: 1, time: 1000});
+            });
+        }
+    function member_add(title, url, w, h) {
+        x_admin_show(title, url, w, h);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/X-admin/css/font.css">
+    <link rel="stylesheet" href="/X-admin/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/X-admin/js/xadmin.js"></script>
+
+</head>
+<body onload="load();">
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="../login.html">商家-点餐</a></div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="">个人信息</a></dd>
+                <dd><a href="">切换帐号</a></dd>
+                <dd><a href="../login.html">退出</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/">首页</a></li>
+    </ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<div class="wrapper">
+    <!-- 左侧菜单开始 -->
+
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <xblock>
+                <fieldset class="layui-elem-field layui-field-title site-title">
+                    <legend><a name="default">商家公告</a></legend>
+                </fieldset>
+                <blockquote class="layui-elem-quote">
+                    本店对你永远不打烊，你来就是我们最大的幸运
+                </blockquote>
+            </xblock>
+
+            <xblock>
+                <table class="layui-hide" id="order"></table>
+            </xblock>
+            <div class="layui-btn-group demoTable">
+                <button class="layui-btn" data-type="getCheckData">下单</button>
+
+            </div>
+            <!-- 右侧内容框架，更改从这里结束 -->
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<!-- 中部结束 -->
+	<div class="bg-changer">
+        <div class="swiper-container changer-list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/a.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/b.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/c.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/d.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/e.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/f.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/g.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/h.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/i.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/j.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="../../static/X-admin/images/k.jpg" alt=""></div>
+                <div class="swiper-slide"><span class="reset">初始化</span></div>
+            </div>
+        </div>
+        <div class="bg-out"></div>
+        <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+    </div>
+<!-- 底部开始 -->
+
+<!-- 底部结束 -->
+
+<script>
+    var para;
+    function load() {
+        var url = document.location.toString();
+        var arrUrl = url.split("=");
+
+        para = arrUrl[1];
+
+    }
+    layui.use('table', function () {
+        var table = layui.table;
+
+        table.render({
+            elem: '#order',
+            url: "/getfoodById?id=" + para,
+            cols: [[
+                {type: 'checkbox', width:50,}
+                , {field: 'name', width: 120, title: '菜名'}
+                , {field: 'price', width: 90, title: '原价'}
+                , {field: 'offprice', width: 90, title: '优惠价'}
+                , {field: 'status', title: '是否售空'}
+            ]]
+        });
+    });
+
+
+    layui.use('table', function () {
+        var table = layui.table;
+        //监听表格复选框选择
+        table.on('checkbox(demo)', function (obj) {
+            var data = obj.data;
+
+            console.log(obj)
+        });
+
+
+        var $ = layui.$, active = {
+            getCheckData: function () { //获取选中数据
+                var checkStatus = table.checkStatus('order')
+                    , objs = checkStatus.data;
+                var num;
+                num = objs.length;
+                var data=objs[0].name;
+                for(var i=1;i<num;i++){
+                    data = data + "-" + objs[i].name;
+                }
+
+                $.ajax({
+                    type: "post",
+                    url: "/insertorder?data="+data,
+                    data: (data),
+                    dataType: 'json',
+                });
+
+                //layer.alert(JSON.stringify(data));
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
+</body>
+</html>

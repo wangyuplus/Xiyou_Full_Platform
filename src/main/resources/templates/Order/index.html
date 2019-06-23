@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>餐饮商家列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script src="/layui/css/layui.css" charset="utf-8"></script>
+    <link rel="stylesheet" href="../X-admin/css/font.css">
+    <link rel="stylesheet" href="../X-admin/css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+
+    <script type="text/javascript" src="../X-admin/js/xadmin.js"></script>
+    <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
+
+</head>
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="index.html">餐饮商家列表</a></div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="">个人信息</a></dd>
+                <dd><a href="">切换帐号</a></dd>
+                <dd><a href="">退出</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/">首页</a></li>
+    </ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<div class="wrapper">
+    <!-- 左侧菜单开始 -->
+
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <xblock>
+                <div id="tb">
+
+
+                </div>
+
+            </xblock>
+
+            <!--<xblock>-->
+                <!--<table class="layui-table" id="idTest" lay-filter="demo">-->
+                <!--</table>-->
+            <!--</xblock>-->
+            <!-- 右侧内容框架，更改从这里结束 -->
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<script type="text/html" id="barDemo">
+    <a title="编辑" href="javascript:;" lay-event="goto"
+       class="ml-5" style="text-decoration:none">
+        <i class="layui-icon">&#xe609; 去点餐</i>
+    </a>
+</script>
+<!-- 中部结束 -->
+<!-- 底部开始 -->
+<div class="bg-changer">
+    <div class="swiper-container changer-list">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/a.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/b.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/c.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/d.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/e.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/f.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/g.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/h.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/i.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/j.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="item" src="../X-admin/images/k.jpg" alt=""></div>
+            <div class="swiper-slide"><span class="reset">初始化</span></div>
+        </div>
+    </div>
+    <div class="bg-out"></div>
+    <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
+</div>
+<!-- 底部结束 -->
+
+
+
+<script>
+    // layui.use('table', function () {
+    //     var table = layui.table;
+    //     table.render({
+    //         elem: '#idTest'
+    //         , url: '/getmerchantlist'
+    //         , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+    //         , cols: [[
+    //             , {field: 'name', width: 150, title: '商家名字'}
+    //             , {field: 'announcement', width: 300, title: '商家公告信息'}
+    //             , {field: 'type', width: 100, title: '商家状态'}
+    //             , {title: ' ', minWidth: 150, align: 'center', toolbar: '#barDemo'}
+    //         ]]
+    //     });
+    //
+    //     //监听工具条
+    //     table.on('tool(demo)', function (obj) {
+    //         var data = obj.data;
+    //         var id = data.id;
+    //         $.ajax({
+    //             type: "post",
+    //             url: "/getFoodIdByMerchantId?id=" + id,
+    //             data: (id),
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 console.log(data.data)
+    //                 url = "detail.html?id="+id;//此处拼接内容
+    //                 window.location.href = url;
+    //                 //window.location.href = "detail.html?data="+id;
+    //
+    //
+    //             },
+    //         });
+    //
+    //     });
+    // });
+
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        scriptCharset: "utf-8",
+        url: "/getmerchantlist",
+        data: "",
+        success: function (data) {
+            var  stores=data.data;
+            var s = '';
+            for (var i = 0; i < stores.length; i++){
+                s += '<div style="float: left;margin-left: 10px;margin-top: 12px;">'
+                    +'<div class="row">'
+                    +'<div class="col-sm-6 col-md-4">'
+                    +'<div class="thumbnail" style="border-style:solid; border-width:1px; border-color: darkgrey;border-radius: 8px;padding: 9px">'
+                    +'<a href="detail.html" onclick="goto('+stores[i].id+')"> <img src="../image/c.jpg" alt="..."></a>'
+                    +'<div class="caption" style="padding-top: 10px;width: 260px;height: 110px;">'
+                    +'<div style="font-size: x-large;text-align: center;margin-bottom: 10px;">'
+                    +'<a class="mya" href="detail.html" onclick="goto('+stores[i].id+')">'+stores[i].name+'</a></div>'
+                    +'<p>'+stores[i].announcement+'</p>'
+                if (stores[i].status == '0'){
+                    s+='<p><a href="#" class="btn btn-default" role="button" style="float: right;">暂停营业</a></p>'
+                }
+                s+='</div>' +'</div>'+'</div>' +'</div>' +'</div>';
+            }
+            $('#tb').append(s);
+        },
+        error: function (XMLResponse) {
+            alert(" 错误信息：" + XMLResponse.responseText);
+        }
+    });
+    function goto(id) {
+        $.ajax({
+            type: "post",
+            url: "/getFoodIdByMerchantId?id=" + id,
+            data: (id),
+            dataType: 'json',
+            success: function (data) {
+                console.log(data.data)
+                url = "detail.html?id="+id;//此处拼接内容
+                window.location.href = url;
+                //window.location.href = "detail.html?data="+id;
+            },
+        });
+    }
+
+</script>
+</body>
+</html>
